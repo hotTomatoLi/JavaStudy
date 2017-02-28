@@ -8,6 +8,7 @@ import java.util.concurrent.CountDownLatch;
  * 初始化NUM个线程，利用startSignal.await()阻塞这些线程
  * 主线程中执行startSignal.countDown()，则触发NUM个线程的执行，同时主线程doneSignal.await()，等待NUM个线程执行完毕
  * NUM个线程中，每个线程都会执行一次doneSignal.countDown()，当值为0时，主线程触发启动，执行完毕。
+ * 当然，如果主线程执行完毕，NUM个线程仍然可以继续执行，不会因为主线程结束而导致其他线程结束
  */
 public class TestCountDownLatch {
 
