@@ -18,7 +18,21 @@ public class BinarySearchTree {
         return rootNode;
     }
 
-
+    public void insert(TreeNode source, TreeNode target){
+        if(source.getData() < target.getData()){
+            if(source.getRight() == null){
+                source.setRight(target);
+            }else{
+                insert(source.getRight(),target);
+            }
+        }else{
+            if(source.getLeft() == null){
+                source.setLeft(target);
+            }else{
+                insert(source.getLeft(),target);
+            }
+        }
+    }
 
 
 
