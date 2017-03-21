@@ -13,7 +13,7 @@ package com.leegebe.algorithms.subject;
  */
 public class MinimumAvailable {
 
-    public static int[] data = {18, 4, 8, 9, 16, 1, 14, 7, 19, 3, 0, 5, 2, 11, 6};
+    public static int[] data = {1,2};
 
     /**
      * 普通算法
@@ -23,7 +23,7 @@ public class MinimumAvailable {
      * @return
      */
     public static int ordinaryAlgorithms(){
-        int num = 1;
+        int num = 0;
         while (true){
            boolean hasFlag = false;
            for(int i = 0; i < data.length; i++){
@@ -41,7 +41,40 @@ public class MinimumAvailable {
         return num;
     }
 
+    /**
+     * 改进算法
+     * 基于以下事实：
+     * 如果[x1,x2,...,xn]n个非负整数data，如果为[0,n-1]，那么最小可用数为n；如果数组中有任意一个数大于n，那么相应的最小可用数必然小于n，即
+     * result <= n
+     * 这样，定义一个n+1长度的布尔值元素flag[]，默认值均为false；
+     * 遍历data，如果data[i] < n，那么对应的flag[data[i]]=true
+     * 最后遍历flag[]，找到第一个false的位置index，index即为所求的
+     * 最后，如果data为[0,1,2,...,n-1]，那么只有flag[n]为false，最终的值也就为n
+     * @return
+     */
+    public static int improvement_one(){
+        boolean[] flag = new boolean[data.length+1];
+        for(int i = 0; i < flag.length; i++){
+            flag[i] = false;
+        }
+        for(int i = 0; i < data.length; i++){
+            int dataEle = data[i];
+            if(dataEle < data.length){
+                flag[dataEle] = true;
+            }
+        }
+
+        for(int i = 0; i < flag.length; i++){
+            if(flag[i] == false){
+                return i;
+            }
+        }
+        throw new RuntimeException("没有找到数据");
+    }
+
+
     public static void main(String[] args){
         System.out.println(ordinaryAlgorithms());
+        System.out.println(improvement_one());
     }
 }
