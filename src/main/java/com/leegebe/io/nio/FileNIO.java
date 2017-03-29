@@ -39,4 +39,24 @@ public class FileNIO {
         fileChannel.write(buffer);
     }
 
+    @Test
+    public void testCopyFile() throws IOException {
+        FileInputStream fileInputStream = new FileInputStream("E:\\1.txt");
+        FileOutputStream fileOutputStream = new FileOutputStream("E:\\2.txt");
+        FileChannel fin = fileInputStream.getChannel();
+        FileChannel fout = fileOutputStream.getChannel();
+        ByteBuffer buffer = ByteBuffer.allocate(1024);
+
+        buffer.clear();
+        int r = fin.read( buffer );
+        while (true){
+            if (r==-1) {
+                break;
+            }else{
+                r = fin.read( buffer );
+            }
+        }
+        buffer.flip();
+        fout.write( buffer );
+    }
 }
