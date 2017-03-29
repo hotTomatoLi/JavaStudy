@@ -47,16 +47,15 @@ public class FileNIO {
         FileChannel fout = fileOutputStream.getChannel();
         ByteBuffer buffer = ByteBuffer.allocate(1024);
 
-        buffer.clear();
-        int r = fin.read( buffer );
         while (true){
+            buffer.clear();
+            int r = fin.read( buffer );
             if (r==-1) {
                 break;
-            }else{
-                r = fin.read( buffer );
             }
+            buffer.flip();
+            fout.write( buffer );
         }
-        buffer.flip();
-        fout.write( buffer );
+
     }
 }
