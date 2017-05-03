@@ -10,18 +10,14 @@ public class Insert extends Template {
 
     void sort(Comparable[] array) {
         for(int i = 1; i < array.length; i++){
-            for(int j = i-1; j >= 0 ; j--){
-                if(less(array[j+1],array[j])){
-                   exch(array,j+1,j);
-                }else{
-                    break;
-                }
+            for(int j = i; j > 0 && less(array[j], array[j - 1]) ; j--){
+                exch(array, j, j-1);
             }
         }
     }
 
     public static void main(String[] args) {
-        Integer[] array = {1, 2, 3, 4, 0, 98, 9, 6, 2, 4, 182};
+        Integer[] array = {1, 8, 5, 56, 2, 3, 4, 0, 98, 9, 6, 2, 4, 182};
         Template insert = new Insert();
         insert.sort(array);
         System.out.println(insert.isSorted(array));
