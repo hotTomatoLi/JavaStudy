@@ -9,7 +9,7 @@ public abstract class Template {
      * 排序
      * @param array
      */
-    abstract void sort(Comparable[] array);
+    abstract public void sort(Comparable[] array);
 
     /**
      * v是否比w小

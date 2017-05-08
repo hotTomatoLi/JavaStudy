@@ -11,7 +11,7 @@ package com.leegebe.algorithms.sort;
 public class Selection extends Template {
 
     @Override
-    void sort(Comparable[] array) {
+    public void sort(Comparable[] array) {
         for(int i = 0; i < array.length; i++){
             int index = i;
             for(int j = i+1; j < array.length; j++){
