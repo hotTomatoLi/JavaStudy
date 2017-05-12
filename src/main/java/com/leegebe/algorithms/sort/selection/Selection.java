@@ -1,4 +1,6 @@
-package com.leegebe.algorithms.sort;
+package com.leegebe.algorithms.sort.selection;
+
+import com.leegebe.algorithms.sort.Template;
 
 /**
  * 选择排序
