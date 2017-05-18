@@ -1,6 +1,5 @@
 package com.leegebe.algorithms.sort.exchange;
 
-import com.leegebe.algorithms.sort.Insert;
 import com.leegebe.algorithms.sort.Template;
 
 /**
