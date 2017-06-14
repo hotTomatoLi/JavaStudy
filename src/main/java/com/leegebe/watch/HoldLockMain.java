@@ -23,7 +23,6 @@ public class HoldLockMain {
             this.i = i;
         }
 
-        @Override
         public void run() {
             try{
                 while (true){
