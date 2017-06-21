@@ -33,12 +33,33 @@ public class StringContain {
 
     public static void main(String[] args){
         String A = "ABCDEFGHINNNGGBD";
-        String B = "EBC";
+        String B = "EBCR";
         System.out.println(containSolutionOne(A, B));
+        System.out.println(containSolutionTwo(A, B));
 
     }
 
 
+    /**
+     * 遍历的解决方案
+     * @param A
+     * @param B
+     * @return
+     */
+    public static boolean containSolutionTwo(String A, String B){
+        char[] charsA = A.toCharArray();
+        char[] charsB = B.toCharArray();
+        int flag = 0;
+        for(int i = 0; i < charsA.length; i++){
+            flag = flag | 1 << (charsA[i] - 'A');
+        }
+        for(int j = 0; j < charsB.length; j++){
+            if((flag & (1 << charsB[j] - 'A')) == 0){
+                return false;
+            }
+        }
+        return  true;
+    }
 
 
 }
