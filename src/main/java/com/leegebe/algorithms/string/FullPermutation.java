@@ -1,4 +1,4 @@
-package com.leegebe.algorithms.project;
+package com.leegebe.algorithms.string;
 
 /**
  * 全排列
