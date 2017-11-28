@@ -6,7 +6,7 @@ package com.leegebe.thread.threadgroup;
  * @author 李恩全
  * @date 2017/11/28 上午11:18
  */
-public class ThreadGroupDemo {
+public class ThreadGroupDefaultDemo {
 
     public static void main(String[] args){
         printThreadGroupInfo(Thread.currentThread());
